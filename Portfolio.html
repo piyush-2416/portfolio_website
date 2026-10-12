@@ -1,184 +1,379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Piyush Verma | MERN &amp; PERN Stack Developer</title>
-<meta name="description" content="Piyush Verma, full-stack developer from Ghaziabad building web apps with the MERN and PERN stacks.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<link rel="stylesheet" href="portfolio.css">
-</head>
-<body>
-
-<header class="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="#home">Piyush Verma</a>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="links"><i class="fa-solid fa-bars"></i></button>
-    <nav id="links" class="links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact" class="nav-cta">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <!-- HERO -->
-  <section id="home" class="hero wrap">
-    <div class="hero-text">
-      <p class="hello">Hello, I'm</p>
-      <h1>Piyush Verma</h1>
-      <p class="role">MERN &amp; PERN Stack Developer</p>
-      <p class="lead">I build responsive full-stack web apps, from secure authentication and role-based dashboards to booking and marketplace platforms, and I lead the technical side of the teams I work with.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projects">View projects</a>
-        <a class="btn" href="#contact">Get in touch</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piyush Verma | MERN &amp; PERN Stack Developer</title>
+    <meta
+      name="description"
+      content="Piyush Verma, full-stack developer from Ghaziabad building web apps with the MERN and PERN stacks."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="portfolio.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav-in">
+        <a class="brand" href="#home">Piyush Verma</a>
+        <button
+          class="menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="links"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav id="links" class="links">
+          <a href="gallery.html">Gallery</a>
+          <a href="certificates.html">Certificates</a>
+        </nav>
       </div>
-      <ul class="stats">
-        <li><b>85+</b><span>LeetCode problems solved</span></li>
-        <li><b>10</b><span>Projects built</span></li>
-        <li><b>1</b><span>Hackathon won</span></li>
-      </ul>
-    </div>
-    <figure class="avatar">
-      <span aria-hidden="true">PV</span>
-      <!-- Apni photo yahan: profile.jpg naam se isi folder me rakho -->
-      <img src="profile.jpg" alt="Piyush Verma" onerror="this.remove()">
-      <figcaption><i class="fa-solid fa-location-dot"></i> Ghaziabad, India</figcaption>
-    </figure>
-  </section>
+    </header>
 
-  <!-- ABOUT -->
-  <section id="about" class="wrap sec">
-    <h2>About me</h2>
-    <div class="two">
-      <div class="prose">
-        <p>I'm a BCA student and full-stack developer who likes turning ideas into fast, easy-to-use web apps. I work across the MERN and PERN stacks, designing APIs, modelling data in MongoDB and PostgreSQL, and building React interfaces that work well on every screen.</p>
-        <p>Outside the editor I practise problem solving on LeetCode, HackerRank and GeeksforGeeks, with 85+ LeetCode problems solved so far. My goal is simple: write clean code, design with purpose and ship things people actually use.</p>
-      </div>
-      <div class="edu">
-        <h3>Education</h3>
-        <article>
-          <b>Bachelor of Computer Applications</b>
-          <span>HRIT University, Ghaziabad</span>
-          <small>2024 to 2027, currently in 2nd year, GPA 7.5</small>
-        </article>
-        <article>
-          <b>Higher Secondary (12th)</b>
-          <span>Ch. Budh Singh Inter College, Loni</span>
-          <small>UP Board, 53%, completed 2023</small>
-        </article>
-        <article>
-          <b>Secondary (10th)</b>
-          <span>Ch. Budh Singh Inter College, Loni</span>
-          <small>UP Board, 70%, completed 2021</small>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="wrap sec">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <!-- SIS ki details (company/team ka poora naam, dates, kaam) yahan edit kar lo -->
-      <article class="role-card lead-card">
-        <div class="role-top"><h3>Technical Leader</h3><span class="badge">Leadership</span></div>
-        <p class="org">SIS</p>
-        <p>Guiding the technical direction of the team: planning features, reviewing code and helping teammates solve problems.</p>
-      </article>
-      <article class="role-card">
-        <div class="role-top"><h3>Full Stack Developer (MERN &amp; PERN)</h3></div>
-        <p class="org">BCA student, Ghaziabad, India</p>
-        <p>Building full-stack applications with React, Node.js, Express, MongoDB and PostgreSQL, including REST APIs, JWT authentication and admin dashboards.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="wrap sec">
-    <h2>Skills</h2>
-    <p class="sub">Two stacks I use to build complete products, front to back.</p>
-    <div class="stacks">
-      <article class="stack mern">
-        <h3>MERN</h3>
-        <ul><li>MongoDB</li><li>Express.js</li><li>React.js</li><li>Node.js</li></ul>
-      </article>
-      <article class="stack pern">
-        <h3>PERN</h3>
-        <ul><li>PostgreSQL</li><li>Express.js</li><li>React.js</li><li>Node.js</li></ul>
-      </article>
-    </div>
-    <div class="skill-grid">
-      <article><h3>Frontend</h3><ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript (ES6+)</li><li>React.js</li></ul></article>
-      <article><h3>Backend</h3><ul class="chips"><li>Node.js</li><li>Express.js</li><li>REST APIs</li><li>JWT Auth</li></ul></article>
-      <article><h3>Databases</h3><ul class="chips"><li>MongoDB</li><li>PostgreSQL</li><li>MySQL</li></ul></article>
-      <article><h3>Languages</h3><ul class="chips"><li>Java</li><li>Python</li><li>C++</li><li>C</li></ul></article>
-      <article><h3>Tools</h3><ul class="chips"><li>Git</li><li>GitHub</li><li>Postman</li></ul></article>
-      <article><h3>Problem solving</h3><ul class="chips"><li>LeetCode (85+ solved)</li><li>HackerRank</li><li>GeeksforGeeks</li><li>DSA</li></ul></article>
-    </div>
-  </section>
-
-  <!-- PROJECTS (cards portfolio.js se bante hain) -->
-  <section id="projects" class="wrap sec">
-    <h2>Projects</h2>
-    <p class="sub">A few of the full-stack apps I have built. More on <a href="https://github.com/piyushs-2416" target="_blank" rel="noopener">GitHub</a>.</p>
-    <div id="project-grid" class="project-grid"></div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements" class="wrap sec">
-    <h2>Achievements</h2>
-    <ul class="ach">
-      <li><i class="fa-solid fa-code"></i><b>85+ LeetCode problems</b><span>Solved across data structures and algorithms</span></li>
-      <li><i class="fa-solid fa-trophy"></i><b>Hackathon winner</b><span>Built and shipped a working product under time pressure</span></li>
-      <li><i class="fa-solid fa-star"></i><b>HackerRank 2 star</b><span>Regular practice on coding challenges</span></li>
-      <li><i class="fa-solid fa-flag-checkered"></i><b>Coding contests</b><span>Active participant in online contests</span></li>
-      <li><i class="fa-brands fa-github"></i><b>Active on GitHub</b><span>3+ full-stack web applications published</span></li>
-    </ul>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="wrap sec">
-    <h2>Let's work together</h2>
-    <div class="two">
-      <div class="prose">
-        <p>Have a project, an internship or a team that needs a full-stack developer? Send a message and I'll get back to you.</p>
-        <ul class="contact-list">
-          <li><i class="fa-solid fa-envelope"></i><a href="mailto:piyushverma2401@gmail.com">piyushverma2401@gmail.com</a></li>
-          <li><i class="fa-solid fa-phone"></i><a href="tel:+919811396504">+91 9811396504</a></li>
-          <li><i class="fa-solid fa-location-dot"></i>Ghaziabad, Uttar Pradesh, India</li>
-        </ul>
-        <div class="social">
-          <a href="https://github.com/piyushs-2416" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://linkedin.com/in/piyush-verma622772340" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="mailto:piyushverma2401@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero wrap">
+        <div class="hero-text">
+          <p class="hello">Hello, I'm</p>
+          <h1>Piyush Verma</h1>
+          <p class="role">PERN Stack &amp; Java Developer</p>
+          <p class="lead">
+            I build responsive full-stack web apps, from secure authentication
+            and role-based dashboards to booking and marketplace platforms, and
+            I lead the technical side of the teams I work with.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+          <ul class="stats">
+            <li><b>85+</b><span>LeetCode problems solved</span></li>
+            <li><b>10</b><span>Projects built</span></li>
+            <li><b>1</b><span>Hackathon won</span></li>
+          </ul>
         </div>
+        <figure class="avatar">
+          <span aria-hidden="true">PV</span>
+          <!-- Apni photo yahan: profile.jpg naam se isi folder me rakho -->
+          <img src="profile.jpg" alt="Piyush Verma" onerror="this.remove()" />
+          <figcaption>
+            <i class="fa-solid fa-location-dot"></i> Ghaziabad, India
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="wrap sec">
+        <h2>About me</h2>
+        <div class="two">
+          <div class="prose">
+            <p>
+              I'm a BCA student and full-stack developer who likes turning ideas
+              into fast, easy-to-use web apps. I work across the MERN and PERN
+              stacks, designing APIs, modelling data in MongoDB and PostgreSQL,
+              and building React interfaces that work well on every screen.
+            </p>
+            <p>
+              Outside the editor I practise problem solving on LeetCode,
+              HackerRank and GeeksforGeeks, with 85+ LeetCode problems solved so
+              far. My goal is simple: write clean code, design with purpose and
+              ship things people actually use.
+            </p>
+          </div>
+          <div class="edu">
+            <h3>Education</h3>
+            <article>
+              <b>Bachelor of Computer Applications</b>
+              <span>HRIT University, Ghaziabad</span>
+              <small>2024 to 2027, currently in 2nd year, GPA 7.5</small>
+            </article>
+            <article>
+              <b>Higher Secondary (12th)</b>
+              <span>Ch. Budh Singh Inter College, Loni</span>
+              <small>UP Board, 53%, completed 2023</small>
+            </article>
+            <article>
+              <b>Secondary (10th)</b>
+              <span>Ch. Budh Singh Inter College, Loni</span>
+              <small>UP Board, 70%, completed 2021</small>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="wrap sec">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <!-- SIS ki details (company/team ka poora naam, dates, kaam) yahan edit kar lo -->
+          <article class="role-card lead-card">
+            <div class="role-top">
+              <h3>Technical Leader</h3>
+              <span class="badge">Leadership</span>
+            </div>
+            <p class="org">SIS</p>
+            <p>
+              Guiding the technical direction of the team: planning features,
+              reviewing code and helping teammates solve problems.
+            </p>
+          </article>
+          <article class="role-card lead-card">
+            <div class="role-top">
+              <h3>Technical Team Member</h3>
+              <span class="badge">SIH Internal Hackathon</span>
+            </div>
+            <p class="org">SIH</p>
+            <p>
+              Worked with the team leader to plan and build the project,
+              handling the development work together.
+            </p>
+            <p>
+              Won 3rd position in the SIH (Smart India Hackathon) internal
+              hackathon.
+            </p>
+          </article>
+          <article class="role-card">
+            <div class="role-top">
+              <h3>Full Stack Developer (MERN &amp; PERN)</h3>
+            </div>
+            <p class="org">BCA student, Ghaziabad, India</p>
+            <p>
+              Building full-stack applications with React, Node.js, Express,
+              MongoDB and PostgreSQL, including REST APIs, JWT authentication
+              and admin dashboards.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="wrap sec">
+        <h2>Skills</h2>
+        <p class="sub">
+          Two stacks I use to build complete products, front to back.
+        </p>
+        <div class="stacks">
+          <article class="stack mern">
+            <h3>MERN</h3>
+            <ul>
+              <li>MongoDB</li>
+              <li>Express.js</li>
+              <li>React.js</li>
+              <li>Node.js</li>
+            </ul>
+          </article>
+          <article class="stack pern">
+            <h3>PERN</h3>
+            <ul>
+              <li>PostgreSQL</li>
+              <li>Express.js</li>
+              <li>React.js</li>
+              <li>Node.js</li>
+            </ul>
+          </article>
+          <article class="stack java">
+            <h3>JAVA</h3>
+            <ul>
+              <li>DSA</li>
+              <li>OOPs</li>
+              <li>System Design (basics)</li>
+              <li>SQL</li>
+            </ul>
+          </article>
+        </div>
+        <div class="skill-grid">
+          <article>
+            <h3>Frontend</h3>
+            <ul class="chips">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>React.js</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Backend</h3>
+            <ul class="chips">
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>REST APIs</li>
+              <li>JWT Auth</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Databases</h3>
+            <ul class="chips">
+              <li>MongoDB</li>
+              <li>PostgreSQL</li>
+              <li>MySQL</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Languages</h3>
+            <ul class="chips">
+              <li>Java</li>
+              <li>Python</li>
+              <li>C++</li>
+              <li>C</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Tools</h3>
+            <ul class="chips">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>Postman</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Problem solving</h3>
+            <ul class="chips">
+              <li>LeetCode (85+ solved)</li>
+              <li>HackerRank</li>
+              <li>GeeksforGeeks</li>
+              <li>DSA</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTS (cards portfolio.js se bante hain) -->
+      <section id="projects" class="wrap sec">
+        <h2>Projects</h2>
+        <p class="sub">
+          A few of the full-stack apps I have built. More on
+          <a
+            href="https://github.com/piyushs-2416"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >.
+        </p>
+        <div id="project-grid" class="project-grid"></div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements" class="wrap sec">
+        <h2>Achievements</h2>
+        <ul class="ach">
+          <li>
+            <i class="fa-solid fa-code"></i><b>85+ LeetCode problems</b
+            ><span>Solved across data structures and algorithms</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-trophy"></i><b>Hackathon winner</b
+            ><span
+              >Built and shipped a working product under time pressure</span
+            >
+          </li>
+          <li>
+            <i class="fa-solid fa-star"></i><b>HackerRank 2 star</b
+            ><span>Regular practice on coding challenges</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-flag-checkered"></i><b>Coding contests</b
+            ><span>Active participant in online contests</span>
+          </li>
+          <li>
+            <i class="fa-brands fa-github"></i><b>Active on GitHub</b
+            ><span>3+ full-stack web applications published</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="wrap sec">
+        <h2>Let's work together</h2>
+        <div class="two">
+          <div class="prose">
+            <p>
+              Have a project, an internship or a team that needs a full-stack
+              developer? Send a message and I'll get back to you.
+            </p>
+            <ul class="contact-list">
+              <li>
+                <i class="fa-solid fa-envelope"></i
+                ><a href="mailto:piyushverma2401@gmail.com"
+                  >piyushverma2401@gmail.com</a
+                >
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i
+                ><a href="tel:+919811396504">+91 9811396504</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-location-dot"></i>Ghaziabad, Uttar
+                Pradesh, India
+              </li>
+            </ul>
+            <div class="social">
+              <a
+                href="https://github.com/piyushs-2416"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://linkedin.com/in/piyush-verma622772340"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="mailto:piyushverma2401@gmail.com" aria-label="Email"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+          <form id="contact-form" class="form" novalidate>
+            <label
+              >Name<input
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                placeholder="Your name"
+            /></label>
+            <label
+              >Email<input
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="you@example.com"
+            /></label>
+            <label
+              >Message<textarea
+                name="message"
+                rows="5"
+                required
+                placeholder="Tell me about your project"
+              ></textarea>
+            </label>
+            <button class="btn primary" type="submit">Send message</button>
+            <p class="form-note" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="wrap foot-in">
+        <span>&copy; <span id="year"></span> Piyush Verma</span>
+        <a href="#home">Back to top</a>
       </div>
-      <form id="contact-form" class="form" novalidate>
-        <label>Name<input name="name" type="text" autocomplete="name" required placeholder="Your name"></label>
-        <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
-        <label>Message<textarea name="message" rows="5" required placeholder="Tell me about your project"></textarea></label>
-        <button class="btn primary" type="submit">Send message</button>
-        <p class="form-note" role="status"></p>
-      </form>
-    </div>
-  </section>
-</main>
+    </footer>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <span>&copy; <span id="year"></span> Piyush Verma</span>
-    <a href="#home">Back to top</a>
-  </div>
-</footer>
-
-<script src="portfolio.js" defer></script>
-</body>
+    <script src="portfolio.js" defer></script>
+  </body>
 </html>
