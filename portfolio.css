@@ -221,3 +221,23 @@ img{max-width:100%;display:block}
   .gallery-grid,.cert-grid{grid-template-columns:1fr}
   .lb-prev{left:8px}.lb-next{right:8px}.lb-close{top:10px;right:10px}
 }
+.btn-sm{align-self:flex-start;margin-top:14px;padding:9px 18px;font-size:14px}
+.ach .btn i{margin:0;font-size:14px;color:var(--teal)}
+
+
+/* ===== profiles ===== */
+.profile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.profile-card{--brand:var(--teal);--tint:rgba(55,208,192,.14);display:flex;flex-direction:column;gap:6px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);transition:border-color .2s,transform .2s,background .2s}
+.profile-card:hover{border-color:var(--brand);transform:translateY(-4px);background:var(--surface-2)}
+.p-icon{width:54px;height:54px;display:grid;place-items:center;margin-bottom:10px;border-radius:14px;background:var(--tint);color:var(--brand);font-size:26px}
+.profile-card h3{font-size:21px}
+.handle{color:var(--brand);font-weight:700;font-size:14.5px;word-break:break-all}
+.p-desc{flex:1;margin-top:4px;color:#c3d6db;font-size:15px}
+.p-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:var(--brand);font-weight:700;font-size:14.5px}
+.profile-card:hover .p-link{text-decoration:underline;text-underline-offset:3px}
+.profile-card.leetcode{--brand:#ffa116;--tint:rgba(255,161,22,.14)}
+.profile-card.github{--brand:#e6edf3;--tint:rgba(230,237,243,.12)}
+.profile-card.linkedin{--brand:#5aa9f0;--tint:rgba(90,169,240,.15)}
+.profile-card.hackerrank{--brand:#2ec866;--tint:rgba(46,200,102,.14)}
+@media (max-width:900px){.profile-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.profile-grid{grid-template-columns:1fr}}
