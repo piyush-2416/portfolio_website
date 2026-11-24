@@ -14,37 +14,77 @@
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="portfolio.html">Piyush Verma</a>
+    <a class="brand" href="index.html">Piyush Verma</a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="links"><i class="fa-solid fa-bars"></i></button>
     <nav id="links" class="links">
-      <a href="portfolio.html#about">About</a>
-      <a href="portfolio.html#experience">Experience</a>
-      <a href="portfolio.html#skills">Skills</a>
-      <a href="portfolio.html#projects">Projects</a>
-      <a href="portfolio.html#achievements">Achievements</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#leadership">Leadership</a>
+      <a href="index.html#contact">Contact</a>
       <a href="gallery.html">Gallery</a>
       <a href="certificates.html" class="active">Certificates</a>
-      <a href="portfolio.html#contact" class="nav-cta">Contact</a>
+      <a class="nav-cta" href="Piyush_Verma_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap page-body">
   <div class="page-head">
-    <a class="back" href="portfolio.html"><i class="fa-arrow-left fa-solid"></i> Back to portfolio</a>
+    <a class="back" href="index.html"><i class="fa-arrow-left fa-solid"></i> Back to portfolio</a>
     <h1>Certificates</h1>
     <p>Certificates and recognitions I have earned.</p>
   </div>
-  <div id="cert-grid" class="cert-grid"></div>
+
+  <div id="cert-grid" class="cert-grid">
+
+    <article class="cert">
+      <div class="cert-preview"><i class="fa-solid fa-trophy"></i></div>
+      <div class="cert-body">
+        <h3>SIH 2025 Internal Hackathon: Winner</h3>
+        <span class="issuer">HRIT University, Ghaziabad</span>
+        <span class="date">September 2025</span>
+        <a class="proj-link" href="Certificates/SIH_Winner.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> View certificate</a>
+      </div>
+    </article>
+
+    <article class="cert">
+      <div class="cert-preview"><i class="fa-solid fa-award"></i></div>
+      <div class="cert-body">
+        <h3>SIH 2025 Internal Hackathon: Technical Leader</h3>
+        <span class="issuer">HRIT University, Ghaziabad</span>
+        <span class="date">September 2025</span>
+        <a class="proj-link" href="Certificates/SIH_Technical_Leader.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> View certificate</a>
+      </div>
+    </article>
+
+    <!-- Naya certificate add karne ke liye upar wala <article> copy-paste karo.
+         Agar certificate ki image hai to <i ...></i> ki jagah ye lagao:
+         <img src="Images/your_certificate.jpeg" alt="Certificate name" loading="lazy"> -->
+
+  </div>
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
     <span>&copy; <span id="year"></span> Piyush Verma</span>
-    <a href="portfolio.html">Back to home</a>
+    <a href="index.html">Back to home</a>
   </div>
 </footer>
 
-<script src="pages.js" defer></script>
+<script>
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  const menuBtn = document.querySelector(".menu-btn");
+  const links = document.getElementById("links");
+  if (menuBtn && links) {
+    menuBtn.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+</script>
 </body>
 </html>
