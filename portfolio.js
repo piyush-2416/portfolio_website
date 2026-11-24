@@ -1,69 +1,3 @@
-/* ---------- Projects data (yahan edit / add karo) ---------- */
-const GITHUB = "https://github.com/piyushs-2416";
-const projects = [
-  { name: "CarePoint", featured: true,
-    text: "Healthcare appointment and patient management platform with doctor-patient scheduling and a secure backend with role-based access.",
-    tags: ["MERN", "Role-based access", "Scheduling"] },
-  { name: "MERN Authentication System",
-    text: "JWT login and signup, password reset by email and protected routes.",
-    tags: ["JWT", "Node.js", "MongoDB"] },
-  { name: "E-Commerce Website",
-    text: "Product management, cart, user accounts and an admin dashboard.",
-    tags: ["React", "Express", "Admin"] },
-  { name: "Portfolio / Blog Application",
-    text: "CRUD blog backed by MongoDB with a fully responsive layout.",
-    tags: ["CRUD", "MongoDB", "Responsive"] },
-  { name: "MyCommunity",
-    text: "Community discussion platform with posts, groups, notifications and real-time interaction.",
-    tags: ["Real-time", "Groups"] },
-  { name: "Creators_Mart",
-    text: "Marketplace where creators sell digital and physical products, with a seller dashboard, orders, cart and secure payments.",
-    tags: ["Marketplace", "Payments"] },
-  { name: "Events_Handling",
-    text: "Event creation, booking and attendee tracking with an admin panel for organizers.",
-    tags: ["Booking", "Admin panel"] },
-  { name: "Religious_Portals",
-    text: "Portal for religious communities with event and announcement listings, donations and community updates.",
-    tags: ["Listings", "Donations"] },
-  { name: "Shopkeeper Delivery Portal",
-    text: "Order and delivery management for local shopkeepers with real-time tracking and an inventory dashboard.",
-    tags: ["Tracking", "Inventory"] },
-  { name: "Neighbour Helping Portal",
-    text: "Neighbours post and answer help requests, matched by location.",
-    tags: ["Location-based", "Community"] },
-];
-
-const grid = document.getElementById("project-grid");
-projects.forEach((p) => {
-  const card = document.createElement("article");
-  card.className = "project" + (p.featured ? " featured" : "");
-  const head = document.createElement("h3");
-  head.textContent = p.name;
-  if (p.featured) {
-    const b = document.createElement("span");
-    b.className = "badge";
-    b.textContent = "Featured";
-    head.append(b);
-  }
-  const text = document.createElement("p");
-  text.textContent = p.text;
-  const tags = document.createElement("ul");
-  tags.className = "chips";
-  p.tags.forEach((t) => {
-    const li = document.createElement("li");
-    li.textContent = t;
-    tags.append(li);
-  });
-  const link = document.createElement("a");
-  link.className = "proj-link";
-  link.href = GITHUB;
-  link.target = "_blank";
-  link.rel = "noopener";
-  link.innerHTML = '<i class="fa-brands fa-github"></i> View on GitHub';
-  card.append(head, text, tags, link);
-  grid.append(card);
-});
-
 /* ---------- Mobile menu ---------- */
 const menuBtn = document.querySelector(".menu-btn");
 const links = document.getElementById("links");
@@ -88,24 +22,57 @@ const io = new IntersectionObserver((entries) => {
 }, { rootMargin: "-45% 0px -50% 0px" });
 document.querySelectorAll("main section[id]").forEach((s) => io.observe(s));
 
-/* ---------- Contact form: opens the visitor's email app ---------- */
+/* ---------- Contact form ---------- */
+// Free key from https://web3forms.com (sends form messages straight to your inbox).
+// Leave empty to fall back to opening the visitor's email app.
+const WEB3FORMS_KEY = "";
+const EMAIL = "piyushverma2401@gmail.com";
 const form = document.getElementById("contact-form");
 const note = form.querySelector(".form-note");
-form.addEventListener("submit", (e) => {
+const show = (msg, ok) => { note.textContent = msg; note.className = "form-note " + (ok ? "ok" : "err"); };
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const d = Object.fromEntries(new FormData(form));
+  if (d.botcheck) return;
   const name = (d.name || "").trim(), email = (d.email || "").trim(), msg = (d.message || "").trim();
+  const phone = (d.phone || "").trim(), company = (d.company || "").trim(), purpose = d.purpose || "";
   if (!name || !/^\S+@\S+\.\S+$/.test(email) || !msg) {
-    note.textContent = "Please fill in your name, a valid email and a message.";
-    note.className = "form-note err";
+    show("Please fill in your name, a valid email and a message.", false);
     return;
   }
-  const subject = encodeURIComponent("Portfolio message from " + name);
-  const body = encodeURIComponent(msg + "\n\nFrom: " + name + " (" + email + ")");
-  window.location.href = "mailto:piyushverma2401@gmail.com?subject=" + subject + "&body=" + body;
-  note.textContent = "Opening your email app. Thanks for reaching out!";
-  note.className = "form-note ok";
-  form.reset();
+  const subject = purpose + " | " + name;
+  if (WEB3FORMS_KEY) {
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject, from_name: "Portfolio", name, email, phone, company, purpose, message: msg }),
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error();
+      show("Message sent. I'll reply to " + email + " soon. Thank you!", true);
+      form.reset();
+    } catch {
+      show("Could not send. Please email me directly at " + EMAIL + ".", false);
+    }
+    return;
+  }
+  const body = msg + "\n\n---\nName: " + name + "\nEmail: " + email +
+    (phone ? "\nPhone: " + phone : "") + (company ? "\nCompany/College: " + company : "") + "\nPurpose: " + purpose;
+  window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  show("Opening your email app. Just press send. Thank you!", true);
+});
+
+const copyBtn = document.getElementById("copy-email");
+copyBtn.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(EMAIL);
+    copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+  } catch {
+    copyBtn.textContent = EMAIL;
+  }
+  setTimeout(() => { copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy'; }, 2000);
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
