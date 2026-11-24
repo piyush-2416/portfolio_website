@@ -9,6 +9,100 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 <link rel="stylesheet" href="portfolio.css">
+
+<style>
+  /* Gallery-specific styles (simple, no heavy animation) */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 8px 0 48px;
+  }
+  .g-item {
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    border-radius: 14px;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .g-item:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+  .g-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+  .g-item figcaption {
+    padding: 14px 16px 16px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    border: none;
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.92);
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0;
+  }
+  .lightbox[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .lightbox::backdrop { background: rgba(0, 0, 0, 0.92); }
+  .lightbox img {
+    max-width: 92vw;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  .lightbox p {
+    margin: 0;
+    max-width: 700px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .lb-btn {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .lb-btn:hover { background: rgba(255, 255, 255, 0.25); }
+  .lb-close { top: 20px; right: 20px; }
+  .lb-prev  { left: 20px; top: 50%; transform: translateY(-50%); }
+  .lb-next  { right: 20px; top: 50%; transform: translateY(-50%); }
+
+  @media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
+    .lb-prev { left: 10px; }
+    .lb-next { right: 10px; }
+  }
+</style>
 </head>
 <body>
 
@@ -35,7 +129,55 @@
     <h1>Gallery</h1>
     <p>Moments from hackathons, projects and college life.</p>
   </div>
-  <div id="gallery-grid" class="gallery-grid"></div>
+
+  <div id="gallery-grid" class="gallery-grid">
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: Smart India Hackathon 2025 with my team">
+      <img src="Images/Sih_withTeam.jpeg" alt="Team holding the SIH 2025 trophy and certificate at HRIT University" loading="lazy">
+      <figcaption>Smart India Hackathon 2025 (internal round) with my team, HRIT University</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: With faculty and organisers">
+      <img src="Images/sih.jpeg" alt="Team with faculty and organisers after the SIH 2025 internal hackathon" loading="lazy">
+      <figcaption>With faculty and organisers after the SIH 2025 internal hackathon</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: SIH 2025 trophy and certificate">
+      <img src="Images/Sih_winner.jpeg" alt="Holding the trophy and the Hackathon SIH 2025 certificate" loading="lazy">
+      <figcaption>SIH 2025: trophy and certificate, September 2025</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: Trophy, certificate and medals">
+      <img src="Images/Sih_Winnin_certificate.jpeg" alt="Trophy, certificate and medals from the SIH 2025 internal hackathon" loading="lazy">
+      <figcaption>Trophy, certificate and medals: the result of 30 hours of work</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: At the hackathon venue">
+      <img src="Images/Sih_Leader .jpeg" alt="Two teammates giving a thumbs up at the hackathon venue" loading="lazy">
+      <figcaption>At the hackathon venue, ready to build</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: LeetCode 100 Days Badge 2026">
+      <img src="Images/100+days_leetcode.jpeg" alt="LeetCode 100 Days Badge 2026" loading="lazy">
+      <figcaption>LeetCode 100 Days Badge 2026</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: LeetCode 135 problems solved">
+      <img src="Images/Leetcode_135.jpeg" alt="LeetCode profile showing 135 problems solved" loading="lazy">
+      <figcaption>LeetCode: 135 problems solved, longest streak 40 days</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: LeetCode 50 Days Badge">
+      <img src="Images/Leetcode_83.jpeg" alt="LeetCode profile showing 81 problems solved and the 50 Days Badge" loading="lazy">
+      <figcaption>LeetCode: 81 problems solved and the 50 Days Badge</figcaption>
+    </figure>
+
+    <figure class="g-item" tabindex="0" role="button" aria-label="Open photo: LeetCode first 43 problems">
+      <img src="Images/Leetcode_43.jpeg" alt="LeetCode profile showing 43 problems solved" loading="lazy">
+      <figcaption>LeetCode: first 43 problems solved</figcaption>
+    </figure>
+
+  </div>
 
   <dialog id="lightbox" class="lightbox" aria-label="Photo viewer">
     <button id="lb-close" class="lb-btn lb-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
@@ -53,6 +195,66 @@
   </div>
 </footer>
 
-<script src="pages.js" defer></script>
+<script>
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  const menuBtn = document.querySelector(".menu-btn");
+  const links = document.getElementById("links");
+  if (menuBtn && links) {
+    menuBtn.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // Lightbox
+  const items = Array.from(document.querySelectorAll(".g-item"));
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lb-img");
+  const lbCap = document.getElementById("lb-cap");
+  let current = 0;
+
+  function show(index) {
+    current = (index + items.length) % items.length;
+    const img = items[current].querySelector("img");
+    const cap = items[current].querySelector("figcaption");
+    lbImg.src = img.getAttribute("src");
+    lbImg.alt = img.getAttribute("alt");
+    lbCap.textContent = cap ? cap.textContent : "";
+  }
+
+  function openLightbox(index) {
+    show(index);
+    if (!lightbox.open) lightbox.showModal();
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener("click", () => openLightbox(i));
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox(i);
+      }
+    });
+  });
+
+  document.getElementById("lb-close").addEventListener("click", () => lightbox.close());
+  document.getElementById("lb-prev").addEventListener("click", () => show(current - 1));
+  document.getElementById("lb-next").addEventListener("click", () => show(current + 1));
+
+  // Backdrop click closes
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.close();
+  });
+
+  // Arrow keys
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.open) return;
+    if (e.key === "ArrowLeft") show(current - 1);
+    if (e.key === "ArrowRight") show(current + 1);
+  });
+</script>
 </body>
 </html>
